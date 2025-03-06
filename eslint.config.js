@@ -7,7 +7,12 @@ import tseslint from 'typescript-eslint'
 export default tseslint.config(
   { ignores: ['dist'] },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+      'plugin:prettier/recommended',
+      'prettier',
+    ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
@@ -16,6 +21,7 @@ export default tseslint.config(
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      prettier: 'eslint-plugin-prettier',
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -23,6 +29,7 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'prettier/prettier': 'error',
     },
   },
 )
