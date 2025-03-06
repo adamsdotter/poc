@@ -2,3 +2,4 @@ node_modules/
 dist/
 build/
 .storybook/
+pnpm-lock.yaml
