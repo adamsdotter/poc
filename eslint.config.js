@@ -3,6 +3,7 @@ import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -12,6 +13,7 @@ export default tseslint.config(
       ...tseslint.configs.recommended,
       'plugin:prettier/recommended',
       'prettier',
+      'plugin:jsx-a11y/recommended',
     ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -22,6 +24,7 @@ export default tseslint.config(
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
       prettier: 'eslint-plugin-prettier',
+      'jsx-a11y': jsxA11y,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -54,6 +57,13 @@ export default tseslint.config(
       'no-empty-function': 'error',
       'no-magic-numbers': 'warn',
       'no-unneeded-ternary': 'error',
+      'jsx-a11y/anchor-is-valid': 'warn',
+      'jsx-a11y/alt-text': 'error',
+      'jsx-a11y/no-static-element-interactions': 'error',
+      'jsx-a11y/no-onchange': 'warn',
+      'jsx-a11y/label-has-associated-control': 'error',
+      'jsx-a11y/no-redundant-roles': 'warn',
+      'jsx-a11y/heading-hierarchy': 'warn',
     },
   },
 )
