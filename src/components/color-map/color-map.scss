@@ -1,0 +1,28 @@
+.color-map {
+  display: flex;
+  gap: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 4rem;
+  overflow: hidden;
+}
+
+li {
+  padding: 1.5rem;
+  font-size: xx-small;
+  color: black;
+  max-width: 100%;
+  text-align: center;
+}
+
+h1 {
+  color: $primary-color;
+}
+
+h2 {
+  font-size: smaller;
+}

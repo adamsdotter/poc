@@ -1,24 +1,31 @@
-import './color-map.css';
+import './color-map.scss';
+import tokens from '../../assets/design-tokens.json';
 
 function ColorMap() {
-  const colors = [
-    '#F8A8B9',
-    '#F8C8DC',
-    '#F9D1B4',
-    '#FFF5A2',
-    '#A8D8B9',
-    '#A9C9EB',
-    '#D6AEDD',
-  ];
+  const colorGroups = tokens.global.xx.global.color;
 
   return (
-    <ul>
-      {colors.map((color, index) => (
-        <li key={index} style={{ backgroundColor: color }}>
-          {color}
-        </li>
-      ))}
-    </ul>
+    <>
+      <h1>Color map</h1>
+      <div className="color-map">
+        {Object.entries(colorGroups).map(([key, value]) => (
+          <div key={key}>
+            <h2>{key}</h2>
+            <ul>
+              {Object.entries(value).map(([shade, value]) => (
+                <li
+                  key={shade}
+                  style={{ backgroundColor: value.value }}
+                  title={value.value}
+                >
+                  {shade}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
